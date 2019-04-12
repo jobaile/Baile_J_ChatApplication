@@ -27,7 +27,9 @@ const vm = new Vue ({
     methods: {
         dispatchMessage(){
             //emit message event from the client side
-            socket.emit('chat message', { content: this.message, name: this.nickname || "Anonymous"});
+            var date = new Date();
+            //var n = date.getHours();
+            socket.emit('chat message', { content: this.message, name: this.nickname || "Anonymous", time: date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })});
 
             //reset the message field
             this.message = "";
