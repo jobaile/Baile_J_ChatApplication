@@ -6,6 +6,9 @@ function logConnect({sID, message}){
     //debugger;
     console.log(sID, message);
     vm.socketID = sID;
+
+    var newUser = new Object();
+        socket.emit('chat message', { content: "A new user has entered the chat", name: "CHAT BOT", object: newUser});
 }
 
 function appendMessage(message){
