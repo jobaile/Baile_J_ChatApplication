@@ -1,8 +1,8 @@
 // imports
-@import 'modules/_vars.scss';
+@import 'modules/_vars';
+@import 'modules/_message';
 
-
-//general
+//global
 
 html {
 	background-color: $white;
@@ -11,117 +11,4 @@ html {
 p, h1, h2, label {
 	font-family: $font;
 	color: $black;
-}
-
-//----------------chat layout
-#username {
-	margin-top: 5px;
-	display: block;
-	text-align: center;	
-}
-
-form label {
-	margin-top: 5px;
-	display: block;
-	text-align: center;
-}
-
-input {
-	border-radius: 7px;
-	width: 90%;
-	height: 20px;
-	border: 1px solid #bcbcbc;
-	background-color: #f1f1f1;
-	margin-bottom: 10px;
-}
-
-#submitBtn {
-	width: 50%;
-	margin-left: 25%;
-	margin-top: 5px;
-	color: $white;
-	background-color: $dark-blue;
-	border: none;
-}
-
-textarea {
-	border-radius: 7px;
-	width: 90%;
-	height: 60px;
-	border: 1px solid #bcbcbc;
-	background-color: #f1f1f1;
-	margin-left: 5%;
-}
-
-#app {
-	display: grid;
-}
-
-.logo {
-	grid-column: 1/2;
-	grid-row: 1/2;
-	width: 5em;
-	height: 10vh;
-	margin: 0 auto;
-}
-
-.form-container {
-	grid-column: 1/2;
-	grid-row: 3/4;
-	background-color: $light-blue;
-	border-radius: 10px;
-	border: 3px solid $dark-blue;
-	height: 27vh;
-	width: 90%;
-	max-width: 800px;
-	margin: 0 auto;
-}
-
-.messages {
-	grid-column: 1/2;
-	grid-row:2/3;
-	background-color: $light-yellow;
-	border-radius: 10px;
-	border: 3px solid $dark-yellow;
-	height: 55vh;
-	width: 90%;
-	max-width: 800px;
-	margin: 0 auto;
-	margin-bottom: 20px;
-	overflow-y: scroll;
-}
-
-
-//---------------messages
-.new-message { 
-	span { 
-		font-size: 0.8rem; 
-		display: block; 
-		margin-bottom: 2px;}
-    width: 45%;
-	padding: 8px 12px;
-	background-color: $light-blue; 
-    border-radius: 8px;
-	margin-bottom: 1rem;
-	margin-left: 5px;
-    float:left;
-    clear: both;
-}
-
-.my-message {
-	margin-right: 5px;
-    float: right !important;
-    background-color: $dark-blue;
-    color: white;
-}
-
-#messages {
-	list-style-type: none; 
-	margin: 0; 
-	padding: 0;
-	li { padding: 5px 10px;	
-	}
-	li:nth-child(odd) { 
-		background: $light-blue; 
-	}
 }
