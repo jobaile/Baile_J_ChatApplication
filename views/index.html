@@ -19,12 +19,12 @@
 			</header>	
 			
 			<section class="messages">
+				<p class="text-center">{{connected}} online</p>
+	  
 				<ul id="messages" v-for="message in messages">
 					<newmessage :msg="message"></newmessage>
 				</ul>
 			</section>
-
-			<i v-model="typing" id="typing"></i>
 
 			<section class="form-container">
 				<form>

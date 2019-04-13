@@ -2,10 +2,11 @@ import ChatMessage from './modules/ChatMessage.js';
 
 const socket = io();
 
-function logConnect({sID, message}){
+function logConnect({sID, message, connected}){
     //debugger;
     console.log(sID, message);
     vm.socketID = sID;
+    vm.connected = connected;
 
     var newUser = new Object();
         socket.emit('chat message', { content: "A new user has entered the chat", name: "Chat Bot", object: newUser});
@@ -21,8 +22,26 @@ const vm = new Vue ({
         socketID: "",
         nickname: "",
         message: "",
+        connected: '',
+        typing: false,
         messages: []
     },
+
+    watch: {
+        message(value) {
+          value ? socket.emit('typing', this.nickname) : socket.emit('stoptyping');
+        }
+      },
+    
+      created() {
+        socket.on('typing', (data) => {
+          console.log(data);
+          this.typing = data || 'Anonymous';
+        });
+        socket.on('stoptyping', () => {
+          this.typing = false;
+        });
+      },
 
     methods: {
         dispatchMessage(){
@@ -33,7 +52,12 @@ const vm = new Vue ({
 
             //reset the message field
             this.message = "";
-        }
+        },
+
+        isTyping() {
+            socket.emit('typing', this.nickname);
+          },
+          
     },
 
     components: {
