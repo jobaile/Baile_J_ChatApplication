@@ -16,6 +16,8 @@ const server = app.listen(port, () => {
     console.log(`app is running on port ${port}`)
 });
 
+let connected = [];
+
 io.attach(server);
 
 //socket.io chat app stuff to follow
@@ -25,7 +27,10 @@ io.on('connection', function(socket){
     console.log('a user has connected');
     //console.log('a user has connected', socket);
 
-    socket.emit('connected', { sID: `${socket.id}`, message: 'new connection'} );
+    connected.push(socket);
+
+
+    socket.emit('connected', { sID: `${socket.id}`, message: 'new connection', connected: connected.length} );
 
     socket.on('chat message', function(msg){
         console.log('message: ', msg, 'socket:', socket.id);
@@ -36,5 +41,15 @@ io.on('connection', function(socket){
 
     socket.on('disconnect', function(){
         console.log('a user has disconnected');
+        connected.splice(connected.indexOf(socket), 1);
     });
+
+    socket.on('typing', (data) => {
+        io.emit('typing', data);
+    });
+
+    socket.on('stoptyping', () => {
+        io.emit('stoptyping');
+    });
+
 })
