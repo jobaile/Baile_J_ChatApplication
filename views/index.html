@@ -23,10 +23,12 @@
 					<newmessage :msg="message"></newmessage>
 				</ul>
 			</section>
-			
+
+			<i v-model="typing" id="typing"></i>
+
 			<section class="form-container">
 				<form>
-					<textarea v-model="message" class="message" type="text" autocomplete="off" id="textarea"></textarea>
+					<textarea v-model="message" class="message" type="text" autocomplete="off" id="textarea" placeholder="Type your message here..."></textarea>
 					<input type="submit" @click.prevent="dispatchMessage">
 				</form>
 			</section>

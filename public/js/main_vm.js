@@ -8,7 +8,7 @@ function logConnect({sID, message}){
     vm.socketID = sID;
 
     var newUser = new Object();
-        socket.emit('chat message', { content: "A new user has entered the chat", name: "ChatBot", object: newUser});
+        socket.emit('chat message', { content: "A new user has entered the chat", name: "Chat Bot", object: newUser});
 }
 
 function appendMessage(message){
@@ -44,3 +44,4 @@ const vm = new Vue ({
 
 socket.on('connected', logConnect);
 socket.addEventListener('chat message', appendMessage);
+socket.addEventListener('disconnect', appendMessage); //optional

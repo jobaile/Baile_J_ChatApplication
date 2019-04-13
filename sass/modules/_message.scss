@@ -2,7 +2,7 @@
 form label {
 	margin-top: 5px;
 	display: block;
-	text-align: center;
+	text-align: left;
 }
 
 .name-field {
@@ -16,7 +16,7 @@ form label {
 .messages {
 	background-color: $bg-black;
 	border: 3px solid $black;
-	height: 55vh;
+	height: 70vh;
 	width: 90%;
 	max-width: 900px;
     margin: 0 auto;
@@ -27,8 +27,7 @@ form label {
 }
 
 .form-container {
-	background-color: $bg-black;
-	border: 3px solid $black;
+	padding-top: 10px;
 	width: 90%;
 	max-width: 900px;
     margin: 0 auto;
@@ -36,25 +35,50 @@ form label {
 }
 
 .form-container input {
-    display: block;
-    width: 80%;
+	background-color: $light-green;
+	color: $white;
 	border-radius: 4px; 
-	font-size: 0.8rem; 
 	padding: 0.4rem; 
-    border-style: solid;
-    margin-left: 10%;
-    margin-bottom: 5px;
+	border-style: solid;
+	width: 100%;
+	border-radius: 8px;
+	transition: all 0.2s linear;
+}
+
+.form-container input:hover {
+	background-color: $white;
+	border-color: 5px solid $light-green;
+	color: $black;
 }
 
 .form-container textarea {
-    margin-top: 5px;
-    margin-left: 10%;
-	width: 80%;
-	height: 60px;
+	width: 100%;
 	border: 1px solid #bcbcbc;
 	background-color: $white;
+	border-radius: 8px;
 }
 
+@media screen and (min-width: 1024px) {
+	.form-container input {
+		background-color: $light-green;
+		color: $white;
+		border-radius: 4px; 
+		padding: 0.4rem; 
+		border-style: solid;
+		height: 55px;
+		float: right;
+		border-radius: 8px;
+		transition: all 0.2s linear;
+		width: auto;
+	}
+	
+	.form-container textarea {
+		width: 90%;
+		border: 1px solid #bcbcbc;
+		background-color: $white;
+		border-radius: 8px;
+	}
+}
 
 // Chat Messages
 .new-message { 
@@ -89,18 +113,13 @@ form label {
 		background: $black;
 	}
 }
-/* form starting stylings ------------------------------- */
-.group { 
-    position:relative; 
-    margin-bottom:45px; 
-}
 
 .name-field input {
     font-size:18px;
     padding:10px 10px 10px 5px;
-    display:block;
     border:none;
-    border-bottom:1px solid #757575;
+	border-bottom:1px solid #757575;
+	margin-left: 5%;
 }
 
 .name-field input:focus {
