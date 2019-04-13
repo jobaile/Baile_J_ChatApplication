@@ -7,13 +7,14 @@
 	<script src="https://unpkg.com/vue"></script> 
 </head>
 <body>
-	<main id="app">		
-		<section class="form-container">
+	<main id="app">	
+		<header>
+			<p>ChatApp</p>
 			<label for="nickname">Your Nickname (optional)</label>
 			<input v-model="nickname" type="text" id="nickname" class="nickname" placeholder="What is your nickname?">
-			
+		</header>	
+		<section class="form-container">
 			<form>
-				<label for="message">Something to say?</label>
 				<textarea v-model="message" class="message" type="text" autocomplete="off" id="textarea"></textarea>
 				<input type="submit" @click.prevent="dispatchMessage">
 			</form>
